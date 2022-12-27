@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Numbers</h1>
+    <br />
+    <hr />
+    <h4>Even : Green</h4>
+    <h4>Odd : Red</h4>
+
+    <div>
+      <% if(locals.number % 2 === 0 ){ %>
+      <!-- end if -->
+      <h1 style="color: green">Random Number : <%= locals.number %></h1>
+      <% }else{ %>
+      <h1 style="color: red">Random Number : <%= locals.number %></h1>
+      <% } %>
+    </div>
+
+    <div hidden>
+      <h1
+        style="color:  
+      
+        <% if(locals.number % 2 === 0 ){ %> 
+          red 
+          <% }else{  %>
+            green 
+            <% } %>"
+      >
+        Random Number : <%= locals.number %>
+      </h1>
+    </div>
+  </body>
+</html>

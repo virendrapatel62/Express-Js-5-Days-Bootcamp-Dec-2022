@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Courses</h1>
+    <a href="/">Go To HomepAge</a>
+    <br />
+    <br />
+
+    <h1>Random Number : <%= locals.number %></h1>
+
+    <a href="https://courses.feelfreetocode.com">Go To Courses.com</a>
+
+    <ol>
+      <% for(let course of courses) { %>
+      <!-- html will be here -->
+      <li><%= course.name %> By <%= course.author %></li>
+      <% } %>
+    </ol>
+  </body>
+</html>
