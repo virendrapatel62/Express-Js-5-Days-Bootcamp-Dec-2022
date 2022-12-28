@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      ul li {
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello, You are on Home Page :)</h1>
+
+    <h2>Table</h2>
+
+    <h4>FORM WITH GET</h4>
+    <form action="" method="GET">
+      <input type="number" name="number" />
+
+      <br /><br />
+
+      <input type="submit" value="Generate Table" />
+    </form>
+    <hr />
+
+    <h4>FORM WITH POST</h4>
+    <form action="" method="POST">
+      <input type="number" name="number" />
+
+      <br /><br />
+
+      <input type="submit" value="Generate Table" />
+    </form>
+
+    <ul>
+      <% for (item of table) { %>
+      <!-- table item -->
+      <li><%= item %></li>
+      <% } %>
+    </ul>
+  </body>
+</html>

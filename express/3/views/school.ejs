@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>School</h1>
+
+    <hr />
+
+    <table class="table">
+      <tbody>
+        <form action="/school/student" method="post">
+          <tr>
+            <td>
+              <input autofocus type="text" name="name" placeholder="Name" />
+            </td>
+            <td><input type="number" name="age" placeholder="Age" /></td>
+            <td><input type="submit" value="Save" /></td>
+          </tr>
+        </form>
+        <% for (student of students){%>
+        <tr>
+          <td><%= student.name %></td>
+          <td><%= student.age %></td>
+          <td id="<%= student.id %>">
+            <form action="/school/student/delete" method="post">
+              <input hidden name="id" type="text" value="<%= student.id %>" />
+              <input type="submit" value="Delete" />
+            </form>
+          </td>
+        </tr>
+        <%}%>
+      </tbody>
+    </table>
+  </body>
+</html>
