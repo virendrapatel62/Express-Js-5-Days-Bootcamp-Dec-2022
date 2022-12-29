@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <%- include('scripts'); -%>
+
+    <!-- Icons -->
+    <!-- https://feathericons.com/ -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+      .container {
+        margin-top: 10px;
+        border-radius: 10px;
+      }
+
+      .hand {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/"
+              ><i data-feather="home"></i><sub>Home</sub></a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/students/add" title="Add Students"
+              ><i data-feather="user-plus"></i><sub>Add Students</sub>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/students/list" title="All Users"
+              ><i data-feather="users"></i> <sub>All Students</sub></a
+            >
+          </li>
+        </ul>
+        <a class="navbar-brand" href="/"
+          >AMS <sub>Attendance Managenent System</sub></a
+        >
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/profile" title="Profile"
+              ><i data-feather="user"></i>
+              <sub>Profile</sub>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/login" title="Log In"
+              ><i data-feather="log-in"></i>
+              <sub>Login</sub>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/logout" title="Log Out"
+              ><i data-feather="log-out"></i>
+              <sub>Log Out</sub>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </body>
+</html>
+<!-- from header -->
