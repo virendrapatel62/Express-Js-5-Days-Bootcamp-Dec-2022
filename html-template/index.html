@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Icons -->
+    <!-- https://feathericons.com/ -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+      .container {
+        margin-top: 10px;
+        border-radius: 10px;
+      }
+
+      .hand {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Start -->
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              ><i data-feather="home"></i><sub>Home</sub></a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#" title="Add Students"
+              ><i data-feather="user-plus"></i><sub>Add Students</sub>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" title="All Users"
+              ><i data-feather="users"></i> <sub>All Students</sub></a
+            >
+          </li>
+        </ul>
+        <a class="navbar-brand" href="#"
+          >AMS <sub>Attendance Managenent System</sub></a
+        >
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" title="Profile"
+              ><i data-feather="user"></i>
+              <sub>Profile</sub>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" title="Log In"
+              ><i data-feather="log-in"></i>
+              <sub>Login</sub>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" title="Log Out"
+              ><i data-feather="log-out"></i>
+              <sub>Log Out</sub>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Header End  -->
+
+    <!--  Messages Start-->
+    <div class="container">
+      <p class="alert alert-success">Success Message</p>
+      <p class="alert alert-danger">Error Message</p>
+    </div>
+    <!--  Messages End -->
+
+    <!-- Add Class Page Start-->
+    <div class="container">
+      <div class="mx-auto col-8 border mt-4 p-4 rounded">
+        <h1 class="text-center">Add Class</h1>
+        <hr />
+        <form class="needs-validation mt-4 pt-4" novalidate>
+          <div class="form-group">
+            <label>Title</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Class1, Java batch, JS Batch"
+            />
+          </div>
+          <div class="form-group mt-4">
+            <button type="submit" class="btn btn-success">Add Class</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Add Class Page End  -->
+
+    <!-- Add Student Page Start-->
+    <div class="container">
+      <div class="mx-auto col-8 border mt-4 p-4 rounded">
+        <h1 class="text-center">Add Student</h1>
+        <hr />
+        <form class="needs-validation mt-4 pt-4" novalidate>
+          <div class="row">
+            <div class="form-group col-lg-6 col-sm-9 mx-auto">
+              <label>First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter First Name"
+              />
+            </div>
+            <div class="form-group col-lg-6 col-sm-9 mx-auto">
+              <label>Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Last Name"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Address</label>
+            <textarea
+              type="text"
+              class="form-control"
+              rows="3"
+              placeholder="Enter Address"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label>Address</label>
+            <select class="form-control" placeholder="Enter Address">
+              <option value="1">Class 1</option>
+              <option value="2">Class 2</option>
+              <option value="3">Class 3</option>
+              <option value="4">Class 4</option>
+              <option value="5">Class 5</option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="form-group col-lg-6 col-sm-9 mx-auto">
+              <label>Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Enter email"
+              />
+              <div class="invalid-feedback">Email invalid!</div>
+            </div>
+            <div class="form-group col-lg-6 col-sm-9 mx-auto">
+              <label>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+
+          <div class="form-group text-center mt-4">
+            <button
+              type="submit"
+              class="btn btn-success col-6 col-sm-9 mx-auto form-control"
+            >
+              Add Student
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Add Student Page End  -->
+
+    <!-- Student List -->
+    <div class="container border pt-4">
+      <h1 class="text-center">Students List</h1>
+      <hr />
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Sno.</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Class</th>
+            <th>Address</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Virendra</td>
+            <td>virendra@gmail.com</td>
+            <td>Class 2</td>
+            <td>Jabalpur MP</td>
+            <td class="text-danger text-center hand" title="Delete">
+              <i data-feather="trash-2"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Student List End -->
+
+    <!-- Mark Attendance-->
+    <div class="container border pt-4">
+      <h1 class="text-center">Mark Attandance</h1>
+      <hr />
+      <div class="border p-2 my-2">
+        <div class="row">
+          <div class="form-group col-6 ml-auto">
+            <label>Select Class</label>
+            <select
+              class="form-control form-control-sm"
+              placeholder="Enter Address"
+            >
+              <option value="1">Class 1</option>
+              <option value="2">Class 2</option>
+              <option value="3">Class 3</option>
+              <option value="4">Class 4</option>
+              <option value="5">Class 5</option>
+            </select>
+          </div>
+          <div class="form-group col-4 ml-auto">
+            <label>Select Date</label>
+            <input class="form-control form-control-sm" type="date" />
+          </div>
+          <div class="form-group ml-auto col">
+            <label>Select Date</label>
+            <input
+              class="form-control form-control-sm btn-success"
+              value="Filter"
+              type="submit"
+            />
+          </div>
+        </div>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th class="text-center">Attandance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>S1</td>
+            <td>Virendra</td>
+            <td>Class 2</td>
+            <td class="text-center hand" title="Delete">
+              <i
+                data-feather="check-circle"
+                class="bg-success"
+                fill="green"
+                style="border-radius: 10px"
+                color="white"
+              ></i>
+              <i data-feather="check-circle" style="border-radius: 10px"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Mark Attendance End -->
+
+    <!-- Student Attendce Summary Start -->
+    <div class="container border pt-3">
+      <h1 class="text-center">Attandance Summary</h1>
+      <hr />
+
+      <div class="row">
+        <div class="form-group col-6 ml-auto">
+          <label>Select Class</label>
+          <select
+            class="form-control form-control-sm"
+            placeholder="Enter Address"
+          >
+            <option value="1">Class 1</option>
+            <option value="2">Class 2</option>
+            <option value="3">Class 3</option>
+            <option value="4">Class 4</option>
+            <option value="5">Class 5</option>
+          </select>
+        </div>
+        <div class="form-group col-4 ml-auto">
+          <label>Select Date</label>
+          <input class="form-control form-control-sm" type="month" />
+        </div>
+        <div class="form-group ml-auto col">
+          <label class="invisible">Filter</label>
+          <input
+            class="form-control form-control-sm btn btn-success"
+            value="Show"
+            type="btn"
+          />
+        </div>
+      </div>
+
+      <div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th class="text-center">Present</th>
+              <th class="text-center">Absent</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>S1</td>
+              <td>Virendra</td>
+              <td class="text-center">20</td>
+              <td class="text-center">10</td>
+              <td class="text-center">
+                <a href="" title="Show Profile">
+                  <i data-feather="external-link"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Student Attendce End -->
+
+    <!-- student Profile page -->
+    <div class="container border pt-3">
+      <div class="text-center col-lg-6 mx-auto">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/2784/2784461.png"
+          class="rounded-circle mx-auto d-block border p-2"
+          height="200"
+        />
+        <hr />
+        <h4>Virendra Patel</h4>
+        <hr />
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <table class="table table-stripe">
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <td>Virndra Patel</td>
+            </tr>
+            <tr>
+              <th>Address</th>
+              <td>Jabalpur MP</td>
+            </tr>
+            <tr>
+              <th>Class</th>
+              <td>Class 5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- student Profile page end -->
+  </body>
+</html>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<!-- Add it to replace i with icon -->
+<script>
+  feather.replace();
+</script>
