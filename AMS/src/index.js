@@ -39,7 +39,7 @@ app.get("/", (request, response) => {
   response.render("index.ejs", { request, response });
 });
 
-app.all("*", (_, response) => {
+app.all("*", (request, response) => {
   response.render("404.ejs", { request, response });
 });
 
