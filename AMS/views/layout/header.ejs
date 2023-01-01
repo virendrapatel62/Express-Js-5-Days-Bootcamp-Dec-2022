@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title><%= locals.title || 'AMS' %></title>
 
     <%- include('scripts'); -%>
 
@@ -31,19 +31,6 @@
               ><i data-feather="home"></i><sub>Home</sub></a
             >
           </li>
-
-          <% if (locals.request.session.user) {%>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/students/add" title="Add Students"
-              ><i data-feather="user-plus"></i><sub>Add Students</sub>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/students/list" title="All Users"
-              ><i data-feather="users"></i> <sub>All Students</sub></a
-            >
-          </li>
-          <% } %>
         </ul>
         <a class="navbar-brand" href="/"
           >AMS <sub>Attendance Managenent System</sub></a

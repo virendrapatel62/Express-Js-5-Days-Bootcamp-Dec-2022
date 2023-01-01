@@ -1,5 +1,59 @@
-<%- include('../layout/header'); -%>
+<%- include('../layout/header' , {title : 'Add Students'}); -%>
 
-<h1>Add Page</h1>
+<div class="container">
+  <div class="mx-auto col-8 border mt-4 p-4 rounded">
+
+    <h1 class="text-center">Add Student</h1>
+    <hr />
+    <p <%=locals.error ? '' : "hidden" %> class="alert alert-danger"><%= locals.error %>
+    </p>
+    <hr />
+    <form class="needs-validation mt-4 pt-4" novalidate method="post">
+      <div class="row">
+        <div class="form-group col-lg-6 mx-auto">
+          <label>First Name</label>
+          <input type="text" name="firstName" class="form-control" value="<%= student.firstName%>" placeholder="Enter First Name" />
+        </div>
+        <div class="form-group col-lg-6 mx-auto">
+          <label>Last Name</label>
+          <input type="text" name="lastName" class="form-control" value="<%= student.lastName%>" placeholder="Enter Last Name" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <textarea type="text" name="address" class="form-control" rows="3" placeholder="Enter Address">
+<%= student.address%></textarea>
+      </div>
+      <div class="form-group">
+        <label>Class</label>
+
+        <select name="class" class="form-control" value="<%= student.class%>" placeholder="Enter Address">
+          <option selected value="" disabled>Select Class</option>
+          <% for (let c of classes){%>
+          <option value="<%= c.id %>"><%= c.title%></option>
+          <%} %>
+        </select>
+      </div>
+      <div class="row">
+        <div class="form-group col-lg-6 mx-auto">
+          <label>Email address</label>
+
+          <input value="<%= student.email%>" type="email" name="email" class="form-control" placeholder="Enter email" />
+          <div class="invalid-feedback">Email invalid!</div>
+        </div>
+        <div class="form-group col-lg-6 mx-auto">
+          <label>Password</label>
+          <input value="<%= student.password%>" type="password" name="password" class="form-control" placeholder="Password" />
+        </div>
+      </div>
+
+      <div class="form-group text-center mt-4">
+        <button type="submit" class="btn btn-success col-6 col-sm-9 mx-auto form-control">
+          Add Student
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <%- include('../layout/footer'); -%>

@@ -1,5 +1,36 @@
 <%- include('../layout/header'); -%>
 
-<h1>List Page</h1>
+<div class="container border pt-4">
+  <h1 class="text-center">Students List</h1>
+  <hr />
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Sno.</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Class</th>
+        <th>Address</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let index in students){%>
+      <tr>
+        <td><%= +index + 1 %></td>
+        <td>
+          <%= students[index].firstName + ' ' + students[index].lastName %>
+        </td>
+        <td><%= students[index].email %></td>
+        <td><%= students[index].class?.title %></td>
+        <td><%= students[index].address %></td>
+        <td class="text-danger text-center hand" title="Delete">
+          <i data-feather="trash-2"></i>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
 
 <%- include('../layout/footer'); -%>

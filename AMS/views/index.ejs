@@ -1,5 +1,13 @@
 <%- include('layout/header'); -%>
 
-<h1>Home page</h1>
+<div class="container m-4 p-4 text-center mx-auto">
+  <% if (locals.request.session.user.isAdmin) { %>
+  <!-- inclusing admin -->
+  <%- include('admin/admin-home'); -%>
+  <!-- user home -->
+  <% } else {%>
+  <!-- include student page -->
+  <%- include('student/student-home'); -%> <% } %>
+</div>
 
 <%- include('layout/footer'); -%>

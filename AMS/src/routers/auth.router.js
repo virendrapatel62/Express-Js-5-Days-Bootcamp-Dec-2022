@@ -1,6 +1,7 @@
 const Admin = require("../models/user.model");
 
 const passwordHash = require("password-hash");
+const Student = require("../models/student.model");
 
 const authRouter = require("express").Router();
 
@@ -10,17 +11,27 @@ authRouter.get("/login", (request, response) => {
   response.render("auth/login.ejs", { request, response });
 });
 authRouter.post("/login", async (request, response) => {
-  const { email, password } = request.body;
-  const admin = await Admin.findOne({
-    email: email,
-  });
+  const { email, password, user: type } = request.body;
+  const isAdmin = type === "admin";
+  let user = null;
+  if (isAdmin) {
+    user = await Admin.findOne({
+      email: email,
+    });
+  } else {
+    user = await Student.findOne({
+      email: email,
+    });
+  }
 
-  console.log(admin);
+  console.log({ user });
 
-  if (admin) {
-    if (passwordHash.verify(password, admin.password)) {
-      delete admin.id;
-      request.session.user = admin;
+  if (user) {
+    if (passwordHash.verify(password, user.password)) {
+      request.session.user = {
+        ...user._doc,
+        isAdmin,
+      };
       return response.redirect("/");
     }
   }

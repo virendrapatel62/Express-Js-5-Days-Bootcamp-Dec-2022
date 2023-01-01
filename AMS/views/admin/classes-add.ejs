@@ -1,0 +1,26 @@
+<%- include('../layout/header' , {title :'Add Class'}); -%>
+
+<!-- Add Class Page Start-->
+<div class="container">
+  <div class="mx-auto col-8 border mt-4 p-4 rounded">
+    <h1 class="text-center">Add Class</h1>
+    <hr />
+    <form method="POST" class="needs-validation mt-4 pt-4" novalidate>
+      <div class="form-group">
+        <label>Title</label>
+        <input
+          type="text"
+          name="title"
+          class="form-control"
+          placeholder="Class1, Java batch, JS Batch"
+        />
+      </div>
+      <div class="form-group mt-4">
+        <button type="submit" class="btn btn-success">Add Class</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Add Class Page End  -->
+
+<%- include('../layout/footer'); -%>

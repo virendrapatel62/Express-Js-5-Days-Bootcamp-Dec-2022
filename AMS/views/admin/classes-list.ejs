@@ -1,0 +1,32 @@
+<%- include('../layout/header'); -%>
+
+<!-- Student List -->
+<div class="container border pt-4 mt-4">
+  <h1 class="text-center">Classes List</h1>
+  <hr />
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Sno.</th>
+        <th>Name</th>
+        <th>Created At</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let index in classes) { %>
+
+      <tr>
+        <td><%= +index + 1%></td>
+        <td><%= classes[index].title %></td>
+        <td><%= classes[index].createdAt.toDateString() %></td>
+        <td class="text-danger text-center hand" title="Delete">
+          <i data-feather="trash-2"></i>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+<!-- Student List End -->
+<%- include('../layout/footer'); -%>

@@ -1,29 +1,48 @@
 <%- include('../layout/header'); -%>
 
-  <!-- Add Class Page Start-->
-  <div class="container">
-    <div class="mx-auto col-8 border mt-4 p-4 rounded">
-      <h1 class="text-center">Login Here</h1>
-      <hr />
-      <p <%=locals.error ? '' : "hidden" %> class="alert alert-danger"><%= locals.error %>
-      </p>
-      <hr />
-      <form action="/auth/login" method="POST" class="needs-validation mt-4 pt-4" novalidate>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" name="email" class="form-control" placeholder="email@gmail.com"
-            value="patelvirendra62@gmail.com" />
-        </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" name="password" value="12345678" class="form-control" placeholder="*********" />
-        </div>
-        <div class="form-group mt-4">
-          <button type="submit" class="btn btn-success">Login</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <!-- Add Class Page End  -->
+<!-- Add Class Page Start-->
+<div class="container">
+  <div class="mx-auto col-8 border mt-4 p-4 rounded">
+    <% if (request.query.user === 'admin') {  %>
 
-  <%- include('../layout/footer'); -%>
+    <h1 class="text-center">Admin Login</h1>
+
+    <% } else{  %>
+
+    <h1 class="text-center">Student Login</h1>
+    <% }   %>
+
+    <hr />
+    <p <%=locals.error ? '' : "hidden" %> class="alert alert-danger"><%= locals.error %>
+    </p>
+    <hr />
+    <form action="/auth/login" method="POST" class="needs-validation mt-4 pt-4" novalidate>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" placeholder="email@gmail.com" value="patelvirendra62@gmail.com" />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" value="12345678" class="form-control" placeholder="*********" />
+      </div>
+      <div class="form-group">
+        <input hidden type="text" name="user" value="<%= request.query.user %>" class="form-control"/>
+        <% if (request.query.user === 'admin') {  %>
+        
+
+        <a href="/auth/login?user=student">Login As Student?</a>
+
+        <% } else{  %>
+
+        <a href="/auth/login?user=admin">Login As Admin?</a>
+        <% }   %>
+      </div>
+      <div class="form-group mt-4">
+        <button type="submit" class="btn btn-success">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Add Class Page End  -->
+
+<%- include('../layout/footer'); -%>
