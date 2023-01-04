@@ -5,6 +5,7 @@ const Admin = require("./models/user.model");
 const adminRouter = require("./routers/admin.router");
 const authRouter = require("./routers/auth.router");
 var cookieSession = require("cookie-session");
+const attendanceRouter = require("./routers/attendance.router");
 const app = express();
 const PORT = 3000;
 

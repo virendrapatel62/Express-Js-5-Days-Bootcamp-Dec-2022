@@ -1,17 +1,26 @@
 const Class = require("../models/class.model");
 const Student = require("../models/student.model");
 const passwordHash = require("password-hash");
+const attendanceRouter = require("./attendance.router");
+
+const { faker } = require("@faker-js/faker");
+
+const getRandomStudent = () => {
+  return {
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    address: faker.address.streetAddress(),
+    email: faker.internet.email(),
+    password: "12345678",
+  };
+};
 
 const adminRouter = require("express").Router();
 
 // /auth
 
 adminRouter.get("/students/add", async (request, response) => {
-  const student = {
-    firstName: "Harsh",
-    lastName: "Jain",
-    address: "Jabalpur MP",
-  };
+  const student = getRandomStudent();
   const classes = await Class.find();
   response.render("admin/student-add.ejs", {
     request,
@@ -30,20 +39,18 @@ adminRouter.post("/students/add", async (request, response) => {
       password: passwordHash.generate(student.password),
     });
   } catch ({ message }) {
+    const classes = await Class.find();
     error = message;
+    response.render("admin/student-add.ejs", {
+      request,
+      response,
+      student,
+      classes,
+      error: error,
+    });
   }
 
-  const classes = await Class.find();
-
-  console.log({ error });
-
-  response.render("admin/student-add.ejs", {
-    request,
-    response,
-    student,
-    classes,
-    error: error,
-  });
+  return response.redirect("/admin/students/add");
 });
 
 adminRouter.get("/students/list", async (request, response) => {
@@ -81,4 +88,6 @@ adminRouter.get("/classes/list", async (request, response) => {
   response.render("admin/classes-list.ejs", { request, response, classes });
 });
 
+// /admin/at/
+adminRouter.use("/attendance", attendanceRouter);
 module.exports = adminRouter;

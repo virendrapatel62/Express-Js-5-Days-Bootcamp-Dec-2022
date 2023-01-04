@@ -1,0 +1,110 @@
+<%- include('../../layout/header'); -%>
+
+<!-- Mark Attendance-->
+<div class="container border pt-4">
+  <h1 class="text-center">Mark Attandance</h1>
+  <hr />
+  <div class="border p-2 my-2">
+    <form action="/admin/attendance/mark" method="get">
+      <div class="row">
+        <div class="form-group col-6 ml-auto">
+          <label>Select Class</label>
+          <select
+            id="filter-class-select"
+            class="form-control form-control-sm"
+            placeholder="Enter Address"
+            name="class"
+          >
+            <option disabled value="">Select Batch</option>
+            <% for (let index in locals.classes) { %>
+            <!-- start for -->
+            <% if(classes[index].id === request.query.class) { %>
+            <option selected value="<%= classes[index].id%>">
+              <%= classes[index].title%>
+            </option>
+            <% } else { %>
+            <option value="<%= classes[index].id%>">
+              <%= classes[index].title%>
+            </option>
+            <%}%>
+            <!-- end for -->
+            <% } %>
+          </select>
+        </div>
+        <div class="form-group col-4 ml-auto">
+          <label>Select Date</label>
+          <input
+            name="date"
+            id="date-input"
+            class="form-control form-control-sm"
+            type="date"
+            value="<%= request.query.date%>"
+          />
+        </div>
+        <div class="form-group ml-auto col" hidden>
+          <label>Select Date</label>
+          <input
+            class="form-control form-control-sm btn-success"
+            value="Filter"
+            type="submit"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Date</th>
+        <th class="text-center">Attandance</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%for (let index in locals.students) { %>
+      <!-- row -->
+      <tr>
+        <td><%= +index + 1 %></td>
+        <td><%= students[index].firstName %></td>
+        <td><%= students[index].class.title %></td>
+        <td><%= request.query.date %></td>
+        <td class="text-center hand" title="Delete">
+          <i
+            data-feather="check-circle"
+            class="bg-success"
+            fill="green"
+            style="border-radius: 10px"
+            color="white"
+          ></i>
+          <i data-feather="check-circle" style="border-radius: 10px"></i>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+<!-- Mark Attendance End -->
+
+<%- include('../../layout/footer'); -%>
+
+<script>
+  const select = document.querySelector("#filter-class-select");
+  const date = document.querySelector("#date-input");
+  const form = document.querySelector("form");
+
+  select.addEventListener("change", () => {
+    form.submit();
+  });
+  date.addEventListener("change", () => {
+    form.submit();
+  });
+
+  document.addEventListener("keyup", (event) => {
+    if (event.key == "a" && event.ctrlKey) {
+      console.log("Control A Pressed");
+    }
+  });
+</script>

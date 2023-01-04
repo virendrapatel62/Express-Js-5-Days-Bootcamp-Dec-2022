@@ -1,7 +1,7 @@
 <%- include('layout/header'); -%>
 
 <div class="container m-4 p-4 text-center mx-auto">
-  <% if (locals.request.session.user.isAdmin) { %>
+  <% if (locals.request.session?.user?.isAdmin) { %>
   <!-- inclusing admin -->
   <%- include('admin/admin-home'); -%>
   <!-- user home -->
