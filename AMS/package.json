@@ -14,6 +14,7 @@
     "cookie-session": "^2.0.0",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
+    "moment": "^2.29.4",
     "mongoose": "^6.8.2",
     "password-hash": "^1.2.2"
   },
